@@ -1,0 +1,17 @@
+<div class="user-photos">
+  <div class="u-photo" *ngFor="let photo of photos">
+      <div class="u-img">
+          <img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_q.jpg" alt="{{photo.title}}">
+      </div>
+      <div class="u-crud">
+          <button md-raised-button (click)="DeletePhoto(photo.id)">
+              <i class="material-icons">delete</i>
+              Delete
+          </button>
+          <button md-raised-button style="background-color: #1c7c98">
+              <i class="material-icons">mode_edit</i>
+              Edit
+          </button>
+      </div>
+  </div>
+</div>

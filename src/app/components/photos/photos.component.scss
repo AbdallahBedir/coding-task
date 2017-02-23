@@ -1,0 +1,20 @@
+.user-photos{
+    margin:40px 20px;
+    .u-photo{
+        margin:15px 0;
+        box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        overflow: hidden;
+        .u-img{
+            float:left;
+        }
+        .u-crud{
+            float:left;
+            padding:25px;
+            button{
+                background-color:#ee6e73;
+                color:#fff;
+                i{font-size:18px;}
+            }
+        }
+    }
+}

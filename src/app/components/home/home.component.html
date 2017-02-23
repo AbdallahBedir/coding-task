@@ -1,0 +1,11 @@
+<!-- meassage if the user is not loggedIn -->
+<h4 *ngIf="!isLoggedIn">
+  Welcome in codingTask App , Please login to access the dashboard 
+  <button (click)="redirectToLOgin()" md-button>Login</button>
+</h4>
+
+<!-- meassage if the user is loggedIn -->
+<h4 *ngIf="isLoggedIn">
+  Thanks for logging in , you can access your  
+  <a [routerLink]="['/dashboard']">Dashboard</a>
+</h4>

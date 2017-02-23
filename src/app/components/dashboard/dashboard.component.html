@@ -1,0 +1,102 @@
+<!-- start tab group -->
+<md-tab-group class="my-dashboard">
+
+  <!-- ********************start tab1 Comments ************************-->
+  <md-tab label="Comments">
+    <div class='Comments-wrapper'>
+      <!-- start comment -->
+        <div class="comment" *ngFor="let comment of comments">
+          <div class="comment-photo">
+            <img src="https://farm4.staticflickr.com/{{comment.server}}/{{comment.id}}_{{comment.secret}}_q.jpg" alt="{{comment.title._content}}">
+          </div>
+          <!-- end comment-photo -->
+          <div class="comment-info">
+              <img src="https://s.yimg.com/pw/images/buddyicon02.png#{{comment.activity.event[0].user}}" alt="">
+              <span>You said : <b>{{comment.activity.event[0]._content}}</b></span>
+          </div>
+          <!-- end comment-info -->
+        </div>
+        <!-- end comment -->
+    </div>
+  </md-tab>
+  <!-- ****************end tab1 Comments *****************************-->
+
+
+  <!-- ****************start tab2 Activity Photos ********************-->
+  <md-tab label="Activity Photos">
+    <div class="Photos-Wrapper">
+      <!-- start photo -->
+      <div class="photo" *ngFor="let photo of Activityphotos">
+        <div class="activity-img">
+          <img src="https://farm1.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_q.jpg" alt="{{photo.title._content}}">
+        </div>
+        <!-- end activity-img -->
+        <div class="activity-details">
+          <img src="https://farm1.staticflickr.com/{{photo.activity.event[0].iconserver}}/buddyicons/{{photo.activity.event[0].user}}.jpg?{{photo.activity.event[0].dateadded}}#{{photo.activity.event[0].user}}" alt="{{photo.activity.event[0].realname}}">
+          <span>
+              <b>{{photo.activity.event[0].username}}</b>
+              has {{photo.activity.event[0].type}}d you 
+          </span>
+        </div>
+        <!-- end activity-details -->
+      </div>
+      <!-- end photo -->
+    </div>
+  </md-tab>
+  <!-- ****************end tab2 Activity Photos ********************-->
+
+
+<!-- ****************start tab3 Photo tags ********************-->
+  <md-tab label="Photo tags">
+    <div class="tags-Wrapper">
+      <!-- start photo -->
+      <div class="tags-list">
+          <ul class="list-unstyled">
+            <li class="tag" *ngFor="let tag of tags">
+               <i class="material-icons">label</i>
+               <span>{{tag._content}}</span>
+            </li>
+          </ul>
+      </div>
+      <!-- end photo -->
+    </div>
+  </md-tab>
+  <!-- ****************end tab3 Photo tags ********************-->
+
+
+  <!-- ****************start tab4 Users ********************-->
+  <md-tab label="Users">
+    <!-- start users-wrapper -->
+    <div class="users-wrapper">
+        <div class="search-Box">
+            <form>
+                <input mdInput placeholder="Search by Username" value="" #myinput>
+                <button md-raised-button (click)="searchUser(myinput.value)">Search</button>
+            </form>
+        </div>
+        <!-- end search-Box -->    
+        <div class="search-results">
+            <div class="user-info" [@results] *ngIf="searchedUser?.username">
+              <span>We Found: </span>
+              <a href="https://www.flickr.com/photos/{{searchedUser?.id}}/" target="_blank">
+                  {{searchedUser?.username?._content}}
+              </a>
+            </div>
+            <p *ngIf="searchedUser?.message">Sorry User Not Found</p>
+        </div>
+        <!-- end search-results -->
+    </div>
+    <!-- end users-wrapper -->
+  </md-tab>
+  <!-- ****************end tab4 Users ********************-->
+
+
+<!-- ****************start tab5 photos ********************-->
+  <md-tab label="Photos">
+      <!-- render photos component from components folder-->
+      <app-photos></app-photos>
+  </md-tab>
+  <!-- ****************end tab5 photos ********************-->
+
+</md-tab-group>
+<!-- end tab group -->
