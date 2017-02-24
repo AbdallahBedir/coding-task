@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
+import { default as swal } from 'sweetalert2';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';

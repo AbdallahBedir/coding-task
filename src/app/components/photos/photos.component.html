@@ -1,3 +1,4 @@
+<!-- this component belongs to the photos in tab4 -->
 <div class="user-photos">
   <div class="u-photo" *ngFor="let photo of photos">
       <div class="u-img">
@@ -8,7 +9,7 @@
               <i class="material-icons">delete</i>
               Delete
           </button>
-          <button md-raised-button style="background-color: #1c7c98">
+          <button md-raised-button style="background-color: #1c7c98" (click)="updatePhoto()">
               <i class="material-icons">mode_edit</i>
               Edit
           </button>

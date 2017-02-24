@@ -95,9 +95,9 @@ export class FlickrService {
 
   // ********** getting Activity photos using GET request****************
   getActivityPhotos(){
-      let signature = `${this.secret}api_key${this.api_key}auth_token${localStorage.getItem('token')}formatjsonmethodflickr.activity.userPhotosnojsoncallback?permsread`;
+      let signature = `${this.secret}api_key${this.api_key}auth_token${localStorage.getItem('token')}formatjsonmethodflickr.activity.userPhotosnojsoncallback?permsreadtimeframe4d`;
       let newApiSign  = this.generateSig(signature);
-      return this._http.get(`${this.flickrApi}?method=flickr.activity.userPhotos&auth_token=${localStorage.getItem('token')}&format=json&perms=read&api_key=${this.api_key}&api_sig=${newApiSign}&nojsoncallback=?`);
+      return this._http.get(`${this.flickrApi}?method=flickr.activity.userPhotos&timeframe=4d&auth_token=${localStorage.getItem('token')}&format=json&perms=read&api_key=${this.api_key}&api_sig=${newApiSign}&nojsoncallback=?`);
   }
 
 
